@@ -7,6 +7,9 @@ RUN apt-get update \
 # Install required 3rd party tools
         graphicsmagick nodejs npm
 
+# Install gulp cli globally
+RUN npm install gulp-cli -g
+
 # adjust php settings
 RUN echo 'always_populate_raw_post_data = -1\nmax_execution_time = 240\nmax_input_vars = 1500\nupload_max_filesize = 32M\npost_max_size = 32M\nxdebug.max_nesting_level = 400' > /etc/php/7.4/mods-available/typo3.ini \
     && cd /etc/php/7.4/apache2/conf.d \
